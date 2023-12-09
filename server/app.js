@@ -3,6 +3,8 @@ import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
 import errorMiddleware from './middleware/error.middleware.js'
 import serverRoutes from './routes/server.routes.js'
+import userRoutes from './routes/user.routes.js'
+
 
 dotenv.config()
 const app = express()
@@ -12,6 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 app.use("/api/v1", serverRoutes)
+app.use("/api/v1/user", userRoutes)
 app.all('*', (req, res) => {
     res.status(404).json({
         success: false,
