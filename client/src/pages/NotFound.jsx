@@ -1,8 +1,16 @@
+import { Link } from 'react-router-dom'
+import '../styles/NotFound.css'
+import notfoundImg from '../assets/notfoundImg.jpg'
 
 function NotFound() {
     return (
-        <div>
-            <h1>not found</h1>
+        <div className='notfound_container'>
+            <div className='image_container'>
+                <img src={notfoundImg} alt="photo" />
+            </div>
+            <Link to={'/'} className='back'>
+                Go back
+            </Link>
         </div>
     )
 }
