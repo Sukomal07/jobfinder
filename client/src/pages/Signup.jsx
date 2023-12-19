@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import '../styles/Signup.css'
-import loginImg from '../assets/loginImg.png'
 
 function Signup() {
     return (
@@ -25,7 +24,6 @@ function Signup() {
             </div>
             <div className='right_container'>
                 <div className='image'>
-                    <img src={loginImg} alt="photo" />
                     <p>Your Personal Job Finder</p>
                 </div>
             </div>
