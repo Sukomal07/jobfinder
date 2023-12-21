@@ -30,23 +30,27 @@ function Signup() {
             toast.error('Please agree to terms of use and privacy policy');
             return;
         }
-        const response = AxiosInstance.post("/user/signup", data)
-        await toast.promise(response, {
-            loading: "Wait! Creating your account",
-            success: (data) => {
-                return data?.data?.message;
-            },
-            error: (error) => {
-                return error?.response?.data?.message
-            },
-        });
-        setData({
-            name: "",
-            email: "",
-            mobile: "",
-            password: ""
-        })
-        navigate('/')
+        try {
+            const response = AxiosInstance.post("/user/signup", data)
+            await toast.promise(response, {
+                loading: "Wait! Creating your account",
+                success: (data) => {
+                    setData({
+                        name: "",
+                        email: "",
+                        mobile: "",
+                        password: ""
+                    })
+                    navigate('/')
+                    return data?.data?.message;
+                },
+                error: (error) => {
+                    return error?.response?.data?.message
+                },
+            });
+        } catch (error) {
+            console.error(error.message)
+        }
     }
 
 
