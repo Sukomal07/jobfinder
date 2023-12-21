@@ -46,7 +46,7 @@
   font-family: "DM Sans", sans-serif;
 }
 .signup_form > button {
-  padding: 10px 20px;
+  padding: 10px 40px;
   background-color: #ed5353;
   border: none;
   border-radius: 5px;
@@ -55,6 +55,9 @@
   margin-bottom: 15px;
   cursor: pointer;
   font-family: "DM Sans", sans-serif;
+}
+.signin {
+  margin-top: 20px;
 }
 .right_container {
   width: 35%;
