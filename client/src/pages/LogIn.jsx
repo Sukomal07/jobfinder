@@ -25,9 +25,11 @@ function LogIn() {
 
         try {
             const response = AxiosInstance.post("/user/login", data)
-            await toast.promise(response, {
+            toast.promise(response, {
                 loading: "Wait! Loging your account",
                 success: (data) => {
+                    localStorage.setItem('isLoggedin', true)
+                    localStorage.setItem('data', JSON.stringify(data.data.userData))
                     setData({
                         email: "",
                         password: ""
@@ -39,6 +41,7 @@ function LogIn() {
                     return error?.response?.data?.message
                 },
             });
+            return (await response).data
         } catch (error) {
             console.error(error.message)
         }

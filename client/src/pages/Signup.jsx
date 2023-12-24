@@ -32,9 +32,11 @@ function Signup() {
         }
         try {
             const response = AxiosInstance.post("/user/signup", data)
-            await toast.promise(response, {
+            toast.promise(response, {
                 loading: "Wait! Creating your account",
                 success: (data) => {
+                    localStorage.setItem('isLoggedin', true)
+                    localStorage.setItem('data', JSON.stringify(data.data.user))
                     setData({
                         name: "",
                         email: "",
@@ -48,6 +50,7 @@ function Signup() {
                     return error?.response?.data?.message
                 },
             });
+            return (await response).data
         } catch (error) {
             console.error(error.message)
         }
